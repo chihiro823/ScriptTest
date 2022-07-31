@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class Boss
 {
-    public int Magic(int mp)
+    int mp = 53;
+    public void Magic()
     {
         if(mp >= 5)
         {
             mp -= 5;
             Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
-            return mp;
         }
         else
         {
             Debug.Log("MPが足りないため、魔法が使えない。");
-            return mp;
         }
     }
 }
@@ -40,12 +39,12 @@ public class Test : MonoBehaviour
             Debug.Log(array[array.Length - i - 1]);
         }
 
-        int mp = 53;
+        
         Debug.Log("Bossクラスを11回実行");
+        Boss lastboss = new Boss();
         for (int i = 0; i < 11; i++)
         {
-            Boss lastboss = new Boss();
-            mp = lastboss.Magic(mp);
+            lastboss.Magic();
         }
     }
 
